@@ -67,4 +67,5 @@ add_subdirectory(lapacke)
 add_subdirectory(src)
 add_subdirectory(docs)
 add_subdirectory(tests)
+add_subdirectory(swig)
 
