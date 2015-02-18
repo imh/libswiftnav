@@ -1202,7 +1202,7 @@ u8 ambiguity_sat_inclusion(ambiguity_test_t *amb_test, u8 num_dds_in_intersectio
                            sats_management_t *float_sats, double *float_mean,
                            double *float_cov_U, double *float_cov_D)
 {
-  if (float_sats->num_sats <= num_dds_in_intersection + 1 || float_sats->num_sats < 2) {
+  if (float_sats->num_sats <= num_dds_in_intersection + 1 || float_sats->num_sats < 5) {
     /* Nothing added. */
     return 0;
   }
