@@ -445,8 +445,8 @@ void initialize_state(nkf_t *kf, double *dd_measurements, double init_var)
 {
   u8 num_dds = kf->state_dim;
   for (u32 i=0; i<num_dds; i++) {
-    /*  N = Expectation of [phi - rho / lambda]. */
-    kf->state_mean[i] = dd_measurements[i] - dd_measurements[i + num_dds] / GPS_L1_LAMBDA_NO_VAC;
+    /*  N = Expectation of [phi + rho / lambda]. */
+    kf->state_mean[i] = dd_measurements[i] + dd_measurements[i + num_dds] / GPS_L1_LAMBDA_NO_VAC;
     /*  Sigma begins as a diagonal. */
     kf->state_cov_D[i] = init_var;
   }
