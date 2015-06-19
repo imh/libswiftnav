@@ -14,6 +14,15 @@ u8 within_epsilon(double a, double b) {
   return 0;
 }
 
+u8 vec_within_epsilon(u32 n, const double *a, const double *b) {
+  for (u32 i=0; i < n; i++) {
+    if (!within_epsilon(a[i], b[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 void seed_rng(void) {
   srandom(time(NULL));
 }
@@ -21,6 +30,13 @@ void seed_rng(void) {
 double frand(double fmin, double fmax) {
   double f = (double)random() / RAND_MAX;
   return fmin + f * (fmax - fmin);
+}
+
+void vec_frand(u32 n, double fmin, double fmax, double *v)
+{
+  for (u32 i=0; i < n; i++) {
+    v[i] = frand(fmin, fmax);
+  }
 }
 
 u32 sizerand(u32 sizemax) {
